@@ -56,6 +56,9 @@
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
+    <div class="content-body">
+      @yield('main-content')
+    </div>
 </div>
     <!-- /.content-header -->
     @section('content')

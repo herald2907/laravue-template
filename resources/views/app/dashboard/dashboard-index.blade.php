@@ -1,4 +1,6 @@
 @extends('app.app-master')
+
+@section('main-content')
 <!-- Main content -->
 <section class="content">
     <div class="container-fluid">
@@ -587,4 +589,5 @@
       <!-- /.row (main row) -->
     </div><!-- /.container-fluid -->
   </section>
-  <!-- /.content -->
+  <!-- /.content -->    
+@endsection
