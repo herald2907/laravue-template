@@ -31,6 +31,9 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 @endsection
+
+@section('content')
+    
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
@@ -60,12 +63,7 @@
       @yield('main-content')
     </div>
 </div>
-    <!-- /.content-header -->
-    @section('content')
-    
-    @endsection
-   
-    <!-- /.content-wrapper -->
+
   <footer class="main-footer">
     <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
     All rights reserved.
@@ -73,17 +71,10 @@
       <b>Version</b> 3.0.5
     </div>
   </footer>
-
- 
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-
+@endsection
 <!-- jQuery -->
 <script src="{{URL::asset('/js/plugins/jquery/jquery.min.js') }} "></script>
 <!-- jQuery UI 1.11.4 -->

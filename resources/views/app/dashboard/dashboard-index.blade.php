@@ -1,5 +1,4 @@
 @extends('app.app-master')
-
 @section('main-content')
 <!-- Main content -->
 <section class="content">
@@ -134,7 +133,7 @@
                     <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
                   </div>
                   <!-- /.direct-chat-infos -->
-                  <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">
+                  <img class="direct-chat-img" src="{{ URL::asset('image/dist/img/user1-128x128.jpg') }}" alt="message user image">
                   <!-- /.direct-chat-img -->
                   <div class="direct-chat-text">
                     Is this template really for free? That's unbelievable!
@@ -150,7 +149,7 @@
                     <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
                   </div>
                   <!-- /.direct-chat-infos -->
-                  <img class="direct-chat-img" src="dist/img/user3-128x128.jpg" alt="message user image">
+                  <img class="direct-chat-img" src="{{ URL::asset('/image/dist/img/user3-128x128.jpg') }}" alt="message user image">
                   <!-- /.direct-chat-img -->
                   <div class="direct-chat-text">
                     You better believe it!
@@ -166,7 +165,7 @@
                     <span class="direct-chat-timestamp float-right">23 Jan 5:37 pm</span>
                   </div>
                   <!-- /.direct-chat-infos -->
-                  <img class="direct-chat-img" src="dist/img/user1-128x128.jpg" alt="message user image">
+                  <img class="direct-chat-img" src="{{ URL::asset('/image/dist/img/user1-128x128.jpg') }}" alt="message user image">
                   <!-- /.direct-chat-img -->
                   <div class="direct-chat-text">
                     Working with AdminLTE on a great new app! Wanna join?
