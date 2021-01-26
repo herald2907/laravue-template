@@ -3,7 +3,7 @@ import {
     createRouter
 } from "vue-router";
 import Home from "./vue/Home.vue";
-import About from "./vue/About.vue";
+import Dashboard from "./vue/Dashboard.vue";
 import Login from "./vue/Login.vue";
 
 const routes = [{
@@ -17,9 +17,9 @@ const routes = [{
         component: Login,
     },
     {
-        path: "/about",
-        name: "about",
-        component: About
+        path: "/dashboard",
+        name: "dashboard",
+        component: Dashboard
     },
 ];
 
