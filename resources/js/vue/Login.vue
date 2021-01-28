@@ -60,27 +60,43 @@
     </div>
   </div>-->
   <div class="logo-wrapper">
-    <img src='/img/random-logo_red.png'>
+    <img src="/img/random-logo_red.png" />
   </div>
   <div class="container container-fluid card login-wrapper text-center">
     <div class="welcome-text">
-        <h3 class="title">Welcome Back</h3>
-        <p class="subtitle">Please log in to continue</p>
+      <h3 class="title">Welcome Back</h3>
+      <p class="subtitle">Please log in to continue</p>
     </div>
-    <form>
+    <form action="#" @submit.prevent="handleLogin">
       <div class="form-group custom-input">
-        <span class='form-icon'>
+        <span class="form-icon">
           <i class="fas fa-user"></i>
         </span>
-        <input type="text" class="form-control" placeholder="Username">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Username"
+          v-model="formData.email"
+        />
       </div>
       <div class="form-group custom-input">
-        <span class='form-icon'>
+        <span class="form-icon">
           <i class="fas fa-key"></i>
         </span>
-        <input type="password" class="form-control" placeholder="Password">
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Password"
+          v-model="formData.password"
+        />
       </div>
-      <button type="submit float-right " class="btn btn-danger text-bold" style="min-width: 50%">Log In</button>
+      <button
+        type="submit"
+        class="btn btn-danger text-bold float-right"
+        style="min-width: 50%"
+      >
+        Log In
+      </button>
     </form>
     <a href="" class="forgot-password-link"><span>Forgot Password</span></a>
   </div>
