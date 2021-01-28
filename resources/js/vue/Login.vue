@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <!--<div class="container">
     <div class="d-flex justify-content-center h-100">
       <div class="card">
         <div class="card-header">
@@ -58,6 +58,31 @@
         </div>
       </div>
     </div>
+  </div>-->
+  <div class="logo-wrapper">
+    <img src='/img/random-logo_red.png'>
+  </div>
+  <div class="container container-fluid card login-wrapper text-center">
+    <div class="welcome-text">
+        <h3 class="title">Welcome Back</h3>
+        <p class="subtitle">Please log in to continue</p>
+    </div>
+    <form>
+      <div class="form-group custom-input">
+        <span class='form-icon'>
+          <i class="fas fa-user"></i>
+        </span>
+        <input type="text" class="form-control" placeholder="Username">
+      </div>
+      <div class="form-group custom-input">
+        <span class='form-icon'>
+          <i class="fas fa-key"></i>
+        </span>
+        <input type="password" class="form-control" placeholder="Password">
+      </div>
+      <button type="submit float-right " class="btn btn-danger text-bold" style="min-width: 50%">Log In</button>
+    </form>
+    <a href="" class="forgot-password-link"><span>Forgot Password</span></a>
   </div>
 </template>
 
