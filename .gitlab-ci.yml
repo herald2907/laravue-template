@@ -1,4 +1,4 @@
-image: lorisleiva/laravel-docker:latest
+registry.gitlab.com/mehrancodes/laravel-sample:latest
 stages:
   - test
 
