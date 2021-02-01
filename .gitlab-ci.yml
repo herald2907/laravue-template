@@ -1,4 +1,4 @@
-image: registry.gitlab.com/JasonDelf/laravel-template:latest
+image: lorisleiva/laravel-docker:latest
 stages:
   - test
 
