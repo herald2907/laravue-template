@@ -2,9 +2,10 @@ import {
     createWebHistory,
     createRouter
 } from "vue-router";
-import Home from "./vue/Home.vue";
-import Dashboard from "./vue/Dashboard.vue";
-import Login from "./vue/Login.vue";
+import Home from "./vue/layout/Home.vue";
+import Dashboard from "./vue/layout/Dashboard.vue";
+import Login from "./vue/layout/Login.vue";
+import DashboardMaster from "./vue/Dashboard-Master.vue";
 
 const routes = [{
         path: "/",
@@ -17,10 +18,15 @@ const routes = [{
         component: Login,
     },
     {
-        path: "/dashboard",
-        name: "dashboard",
-        component: Dashboard
-    },
+        path: '',
+        component: DashboardMaster,
+        children: [{
+            title: 'Dashboard',
+            path: '/dashboard',
+            name: 'dashboard',
+            component: Dashboard
+        }, ]
+    }
 ];
 
 const router = createRouter({
