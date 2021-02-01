@@ -27,4 +27,10 @@ html{
     }
 }
 
+aside.main-sidebar{
+    height: 100% !important;
+    overflow-x: hidden;
+    position: fixed !important;
+}
+
 @import 'login'

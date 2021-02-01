@@ -25,6 +25,12 @@ html {
   box-shadow: none;
 }
 
+aside.main-sidebar {
+  height: 100% !important;
+  overflow-x: hidden;
+  position: fixed !important;
+}
+
 body {
   background: url("/img/template-bg.png");
   background-size: cover;
