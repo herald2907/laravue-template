@@ -1,13 +1,13 @@
-image: registry.gitlab.com/mehrancodes/laravel-sample:latest
+image: lorisleiva/laravel-docker:latest
 stages:
   - test
 
 unit_test:
   stage: test
   script:
+    - composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
     - cp .env.example .env
-    - composer install
     - php artisan key:generate
     - php artisan migrate
-    - vendor/bin/phpunit
+    - phpunit --coverage-text --colors=never
     - php artisan test
