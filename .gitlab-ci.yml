@@ -1,4 +1,4 @@
-registry.gitlab.com/mehrancodes/laravel-sample:latest
+image: registry.gitlab.com/mehrancodes/laravel-sample:latest
 stages:
   - test
 
