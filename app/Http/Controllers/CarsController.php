@@ -21,13 +21,14 @@ class CarsController extends Controller
 
     public function index(Request $request)
     {
-        $cars = $this->repository->getAllCars($request->all(), []);
+        $cars = $this->repository->getAllData(['name','make'], []);
 
         return CarsResource::collection($cars);
     }
 
     public function show(int $id)
     {
+       
         $cars = $this->repository->findByColumn($id, 'id');
 
         return new CarsResource($cars);

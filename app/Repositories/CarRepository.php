@@ -3,7 +3,7 @@ namespace App\Repositories;
 
 use App\Models\Cars;
 
-class CarRepository {
+class CarRepository extends Repository {
 
     public function __construct(Cars $model)
     {
@@ -14,20 +14,6 @@ class CarRepository {
     {
         //Logic Here 
         $cars = Cars::withTrashed()->get();
-
-        return $cars;
-    }
-
-    public function findById(int $id)
-    {
-        $car = Cars::where('id','=',$id)->first();
-
-        return $car;
-    }
-
-    public function findByColumn(string $value, string $key)
-    {
-        $cars = Cars::where($key, '=', $value)->first();
 
         return $cars;
     }
@@ -46,10 +32,5 @@ class CarRepository {
         $car->update($data);
         
         return $car;
-    }
-
-    public function restore(int $id)
-    {
-        return $this->model->onlyTrashed()->where('id', $id)->restore();
     }
 }

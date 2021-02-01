@@ -1,8 +1,5 @@
 <?php
 namespace App\Validations;
-
-use Symfony\Component\HttpFoundation\Request;
-
 class CarValidation {
 
 
