@@ -2,8 +2,11 @@
 
 namespace App\Console;
 
+use App\Console\Commands\Repository;
+use App\Console\Commands\Validation;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+
 
 class Kernel extends ConsoleKernel
 {
@@ -13,7 +16,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        Commands\Repository::class,
+        Commands\Validation::class
     ];
 
     /**
