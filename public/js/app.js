@@ -18027,7 +18027,7 @@ var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", {
   "class": "container"
-}, " asdasd ", -1
+}, " Landing Page ", -1
 /* HOISTED */
 );
 
@@ -18233,19 +18233,27 @@ __webpack_require__.r(__webpack_exports__);
 var routes = [{
   path: "/",
   name: "Home",
-  component: _vue_layout_Home_vue__WEBPACK_IMPORTED_MODULE_0__.default
+  component: function component() {
+    return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./vue/layout/Home.vue */ "./resources/js/vue/layout/Home.vue"));
+  }
 }, {
   path: "/login",
   name: "login",
-  component: _vue_layout_Login_vue__WEBPACK_IMPORTED_MODULE_2__.default
+  component: function component() {
+    return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./vue/layout/Login.vue */ "./resources/js/vue/layout/Login.vue"));
+  }
 }, {
-  path: '/',
-  component: _vue_Dashboard_Master_vue__WEBPACK_IMPORTED_MODULE_3__.default,
+  path: '/dashboard',
+  component: function component() {
+    return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./vue/Dashboard-Master.vue */ "./resources/js/vue/Dashboard-Master.vue"));
+  },
   children: [{
     title: 'Dashboard',
-    path: '/dashboard',
+    path: '/',
     name: 'dashboard',
-    component: _vue_layout_Dashboard_vue__WEBPACK_IMPORTED_MODULE_1__.default
+    component: function component() {
+      return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./vue/layout/Dashboard.vue */ "./resources/js/vue/layout/Dashboard.vue"));
+    }
   }]
 }];
 var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_4__.createRouter)({
