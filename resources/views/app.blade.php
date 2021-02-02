@@ -39,8 +39,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('/css/style.css') }}">
 	{{-- <link rel="stylesheet" type="text/css" href="{{ URL::asset('/css/login-style.css') }}"> --}}
     </head>
-    <body>
-       
+    <body>      
      
             <div class="content-body">
                 <div id="app">
@@ -84,5 +83,6 @@
     <script src="{{URL::asset('/js/dist/js/pages/dashboard.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ URL::asset('/js/dist/js/demo.js') }}"></script>
-    <script src="../js/app.js"></script>
+    <script src="{{ URL::asset('/js/vue-meta.js') }}"></script>
+    <script src="{{ URL::asset('/js/app.js') }}"></script>
 </html>

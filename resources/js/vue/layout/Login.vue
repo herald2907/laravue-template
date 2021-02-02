@@ -59,6 +59,7 @@
       </div>
     </div>
   </div>-->
+  <link rel="stylesheet" href="/css/login.css">
   <div class="logo-wrapper">
     <img src="/img/random-logo_red.png" />
   </div>

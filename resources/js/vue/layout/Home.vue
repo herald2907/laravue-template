@@ -1,5 +1,8 @@
 <template>
-  <div>This is Home</div>
+  <link rel="stylesheet" href="/css/home.css">
+  <div class="container">
+asdasd
+  </div>
 </template>
 
 <script>

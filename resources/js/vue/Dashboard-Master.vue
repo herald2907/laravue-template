@@ -1,18 +1,21 @@
 <template>
-  
     <div class="navbar-bg">
-      <Navbar />
+      <Navigations />
     </div>
     <div class="main-content">
-      <router-view></router-view>
+      <div class="content-wrapper">
+        <div class="content-body">
+          <router-view></router-view>
+        </div>
+      </div>
     </div>
 </template>
 
 <script>
-import Navbar from "./components/Navbar";
+import Navigations from "./components/Navigations";
 export default {
   components: {
-    Navbar,
+    Navigations,
   },
 };
 </script>
