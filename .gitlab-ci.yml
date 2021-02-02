@@ -5,7 +5,7 @@ stages:
 unit_test:
   stage: test
   script:
-    - composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
+    - composer update
     - cp .env.example .env
     - php artisan key:generate
     - php artisan migrate
