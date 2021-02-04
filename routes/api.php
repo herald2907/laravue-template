@@ -19,4 +19,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::middleware('auth:sanctum')->group(function () {
+  // Authenticated Routes Here
+});
 Route::post('/login', [AuthController::class, 'login']);
+
+Route::post('/auth-user', [AuthController::class, 'authUser']);

@@ -19,6 +19,19 @@ class AuthController extends Controller
 
         return response([
             'message' => 'The provided credentials do not match our records.',
-        ], 500);
+        ], 200);
+    }
+    public function authUser(Request $request)
+    {
+        if (Auth::check()) {
+            return response([
+                'success' => true,
+                'user' => Auth::user(),
+            ], 200);
+        } else {
+            return response([
+                'success' => false,
+            ], 200);
+        }
     }
 }
