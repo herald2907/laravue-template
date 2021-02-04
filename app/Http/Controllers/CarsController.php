@@ -3,12 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\CarsResource;
-use App\Models\Cars;
 use App\Repositories\CarRepository;
 use App\Validations\CarValidation;
-use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
 
 class CarsController extends Controller
