@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CarsController;
 use App\Http\Controllers\DashboardController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/{any?}', function (Request $request) {
     return view('app');
 });
-Route::get('/dashboard', [DashboardController::class, 'index']);
 
+//Route::get('/dashboard', [DashboardController::class, 'index']);
 
 

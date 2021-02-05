@@ -1,1 +1,181 @@
+header.navbar {
+  height: 85px;
+  background-color: #001427;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 1;
+}
 
+.body-wrapper section {
+  padding: 5rem 0;
+  position: relative;
+}
+.body-wrapper .banner {
+  background: url(/img/man-on-computer.jpg);
+  min-height: 600px;
+  color: #f9faf4;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+.body-wrapper .banner::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  background: #001427;
+  background: linear-gradient(90deg, rgba(0, 20, 39, 0.75) 0%, rgba(191, 6, 3, 0.35) 100%);
+}
+.body-wrapper .banner > div {
+  position: relative;
+  z-index: 1;
+}
+.body-wrapper .banner .title {
+  font-weight: bolder;
+}
+.body-wrapper .about {
+  position: unset;
+}
+.body-wrapper .about::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200vh;
+  content: "";
+  background: url(/img/appdev-tag-rotated.png);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+}
+.body-wrapper .about-logo {
+  height: 2rem;
+  width: auto;
+}
+.body-wrapper .about-section {
+  text-align: center;
+  margin-top: 5rem;
+}
+.body-wrapper .about-section .icon-wrapper {
+  height: 8rem;
+  margin-bottom: 1rem;
+}
+.body-wrapper .about-section .icon-wrapper .icon {
+  height: 100%;
+}
+.body-wrapper .about-section .headline {
+  font-weight: bolder;
+  text-transform: capitalize;
+}
+.body-wrapper .about-section .description {
+  font-size: 0.8rem;
+  text-align: justify;
+  padding: 0 1rem;
+}
+.body-wrapper .about .container {
+  position: relative;
+  z-index: 1;
+}
+.body-wrapper .contributors {
+  background-color: #001427;
+}
+.body-wrapper .contributors .title {
+  text-align: center;
+  color: #f9faf4;
+  font-weight: bolder;
+  margin-bottom: 2rem;
+}
+.body-wrapper .contributors .dev-wrapper {
+  background-color: #f9faf4;
+  border-radius: 0.6rem;
+  padding: 2rem;
+  text-align: center;
+  height: 100%;
+  filter: drop-shadow(1rem 1rem 0px black);
+}
+.body-wrapper .contributors .dev-wrapper div {
+  text-align: center;
+}
+.body-wrapper .contributors .dev-wrapper .dev-photo {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 100%;
+  margin: auto;
+  filter: drop-shadow(0.2rem 0.5rem 0px rgba(0, 20, 39, 0.25));
+}
+.body-wrapper .contributors .dev-wrapper .dev-details {
+  margin: 1rem 0;
+}
+.body-wrapper .contributors .dev-wrapper .dev-details span {
+  display: block;
+}
+.body-wrapper .contributors .dev-wrapper .dev-details .name {
+  font-size: 1.05rem;
+  color: #bf0603;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.body-wrapper .contributors .dev-wrapper .dev-description {
+  font-size: 0.7rem;
+}
+.body-wrapper .contact::after {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-image: url("/img/appdev-tag.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  top: 0;
+  z-index: -1;
+  background-position: center;
+}
+.body-wrapper .contact i {
+  color: #bf0603;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.body-wrapper .contact span {
+  color: #001427;
+  font-size: 1rem;
+}
+.body-wrapper .footer {
+  background-color: #001427;
+}
+.body-wrapper .footer .social-media {
+  text-align: center;
+  width: 100%;
+  margin: 1rem 0 0.5rem;
+  font-size: 2rem;
+}
+.body-wrapper .footer .social-media a {
+  margin: 0 0.2rem;
+}
+.body-wrapper .footer .year {
+  opacity: 0.8;
+  color: #f9faf4;
+  font-size: 0.6rem;
+  width: 100%;
+  text-align: center;
+}
+
+.nav-link {
+  color: #f9faf4;
+  text-transform: uppercase;
+}
+.nav-link.nav-login {
+  color: #ee302d;
+  font-weight: bold;
+}
+.nav-link.nav-login span::before {
+  content: "";
+  height: 300px;
+  width: 300px;
+  z-index: 1;
+  background: red;
+  top: 0;
+  right: 0;
+}
