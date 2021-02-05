@@ -8,5 +8,8 @@ unit_test:
     - composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts
     - cp .env.example .env
     - php artisan key:generate
+    - php artisan config:cache
+    - php artisan route:cache
+    - npm install
     - php artisan migrate
     - php artisan test
