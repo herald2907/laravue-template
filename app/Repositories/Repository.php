@@ -25,7 +25,6 @@ class Repository
 
     public function findByColumn(string $value, string $key)
     {
-
         $query = $this->model::where($key, '=', $value)->first();
 
         return $query;

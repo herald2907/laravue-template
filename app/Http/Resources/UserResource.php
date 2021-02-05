@@ -3,8 +3,9 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Crypt;
 
-class CarsResource extends JsonResource
+class UserResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,11 +16,9 @@ class CarsResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'id'                    => $this->id,
-            'name'                  => $this->name,
-            'make'                  => $this->make,
-            'model'                 => $this->model,
-           
+            'id'                        => $this->id,
+            'username'                  => $this->username,
+            'email'                     => $this->email,
         ];
     }
 }
