@@ -2,12 +2,15 @@
 
 namespace App\Validations;
 
-class UserValidation {
+class UserValidation
+{
 
     public function store(array $data = [])
     {
         return [
-           
+            'username'  => ['required', 'string'],
+            'email'     => ['required'],
+            'password'  => ['required', 'string', 'max:255'],
         ];
     }
 
@@ -15,7 +18,9 @@ class UserValidation {
     public function update(array $data = [])
     {
         return [
-            
+            'username'  => ['required', 'string'],
+            'email'     => ['required'],
+            'password'  => ['required', 'string', 'max:255'],
         ];
     }
 }

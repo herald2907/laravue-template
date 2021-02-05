@@ -2,16 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\CarsResource;
-use App\Models\Cars;
+use App\Http\Resources\CarResource;
 use App\Repositories\CarRepository;
 use App\Validations\CarValidation;
-use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
 
-class CarsController extends Controller
+class CarController extends Controller
 {
     public function __construct(CarValidation $validation, CarRepository $repository)
     {
@@ -23,7 +20,7 @@ class CarsController extends Controller
     {
         $cars = $this->repository->getAllData(['name','make'], []);
 
-        return CarsResource::collection($cars);
+        return CarResource::collection($cars);
     }
 
     public function show(int $id)
@@ -31,7 +28,7 @@ class CarsController extends Controller
        
         $cars = $this->repository->findByColumn($id, 'id');
 
-        return new CarsResource($cars);
+        return new CarResource($cars);
     }
 
     public function store(Request $request)
@@ -43,7 +40,7 @@ class CarsController extends Controller
 
         $car = $this->repository->createCar($data);
 
-        return new CarsResource($car);
+        return new CarResource($car);
     }
 
     public function update(Request $request, int $id)
@@ -55,7 +52,7 @@ class CarsController extends Controller
 
         $car = $this->repository->updateCar($data, $id);
 
-        return new CarsResource($car);
+        return new CarResource($car);
     }
 
     public function destroy(int $id)

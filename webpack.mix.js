@@ -11,12 +11,7 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js').extract([
-    'vue',
-    'axios',
-    'vuex',
-    'vue-router',
-]).vue();
+mix.js('resources/js/app.js', 'public/js').vue();
 mix.sass('resources/sass/style.scss', 'public/css');
 mix.sass('resources/sass/home.scss', 'public/css');
 mix.disableNotifications();
@@ -26,4 +21,4 @@ mix.webpackConfig({
         chunkFilename: 'js/chunks/' + process.env.npm_config_section + '/[name].js?id=[chunkhash]',
         publicPath: '/',
     },
-}
+});
