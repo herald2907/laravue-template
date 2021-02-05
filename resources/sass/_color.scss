@@ -1,4 +1,11 @@
+//Variables
 $light: #f9faf4;
-$dark: #4a6163;
 $theme-alert: #f17a7e;
+$primary: #bf0603;
+$primary-lighten: #ee302d;
+$primary-contrast: #03BCBF;
+$dark: #001427;
+    // $dark: #4a6163;
+
+//Functions
 $border-color: transparentize($dark, .75);
