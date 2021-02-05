@@ -1,64 +1,4 @@
 <template>
-    <!--<div class="container">
-    <div class="d-flex justify-content-center h-100">
-      <div class="card">
-        <div class="card-header">
-          <h3>Sign In</h3>
-          <div class="d-flex justify-content-end social_icon">
-            <span><i class="fab fa-facebook-square"></i></span>
-            <span><i class="fab fa-google-plus-square"></i></span>
-            <span><i class="fab fa-twitter-square"></i></span>
-          </div>
-        </div>
-        <div class="card-body">
-          <form action="#" @submit.prevent="handleLogin">
-            <div class="input-group form-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text"
-                  ><i class="fas fa-user"></i
-                ></span>
-              </div>
-              <input
-                type="email"
-                class="form-control"
-                placeholder="Email"
-                v-model="formData.email"
-              />
-            </div>
-            <div class="input-group form-group">
-              <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-key"></i></span>
-              </div>
-              <input
-                type="password"
-                class="form-control"
-                placeholder="password"
-                v-model="formData.password"
-              />
-            </div>
-            <div class="row align-items-center remember">
-              <input type="checkbox" />Remember Me
-            </div>
-            <div class="form-group">
-              <input
-                type="submit"
-                value="Login"
-                class="btn float-right login_btn"
-              />
-            </div>
-          </form>
-        </div>
-        <div class="card-footer">
-          <div class="d-flex justify-content-center links">
-            Don't have an account?<a href="#">Sign Up</a>
-          </div>
-          <div class="d-flex justify-content-center">
-            <a href="#">Forgot your password?</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>-->
     <link rel="stylesheet" href="/css/login.css" />
     <div class="logo-wrapper">
         <img src="/img/random-logo_red.png" />
@@ -77,7 +17,7 @@
                     type="text"
                     class="form-control"
                     placeholder="Username"
-                    v-model="formData.email"
+                    v-model="form.email"
                 />
             </div>
             <div class="form-group custom-input">
@@ -88,7 +28,7 @@
                     type="password"
                     class="form-control"
                     placeholder="Password"
-                    v-model="formData.password"
+                    v-model="form.password"
                 />
             </div>
             <button
@@ -104,23 +44,27 @@
 </template>
 
 <script>
-import LoginApi from "../api/LoginApi";
+import { reactive } from "vue";
+import { useRouter } from "vue-router";
+import loginStore from "../stores/loginStore";
 export default {
-    data() {
-        return {
-            formData: {
-                email: "",
-                password: "",
-            },
-            api : {
-
+    setup() {
+        const form = reactive({
+            email: "",
+            password: "",
+        });
+        const router = useRouter();
+        const handleLogin = () => {
+            form.email = "";
+            form.password = "";
+              let result = loginStore.loginUser(form);
+            if (result) {
+                router.push("/dashboard");
             }
+          
         };
-    },
-    methods: {
-        handleLogin() {
-          api = LoginApi.methods.api(this.formData);
-        },
+
+        return { form, handleLogin };
     },
 };
 </script>

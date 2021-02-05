@@ -23,27 +23,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+/* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
 /* harmony import */ var _stores_login__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../stores/login */ "./resources/js/vue/stores/login.js");
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   setup: function setup() {
-    var _this = this;
-
     var form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
       email: "",
       password: ""
     });
+    var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_2__.useRouter)();
 
     var handleLogin = function handleLogin() {
+      form.email = "";
+      form.password = "";
       var result = _stores_login__WEBPACK_IMPORTED_MODULE_1__.default.loginUser(form);
 
       if (result) {
-        console.log(result);
-
-        _this.$router.push({
-          name: 'dashboard'
-        });
+        router.push("/dashboard");
       }
     };
 
@@ -278,7 +277,7 @@ var actions = {
             case 4:
               _yield$RequestApi$log = _context.sent;
               data = _yield$RequestApi$log.data;
-              return _context.abrupt("return", data.success);
+              return _context.abrupt("return", data);
 
             case 7:
             case "end":
