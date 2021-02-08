@@ -7,7 +7,7 @@ const state = reactive({
 })
 
 const getAuthentication = () => {
-    return JSON.parse(localStorage.getItem('auth_token'));
+    return JSON.parse(localStorage.getItem('user'));
 }
 
 

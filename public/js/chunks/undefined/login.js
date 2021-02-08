@@ -34,6 +34,7 @@ __webpack_require__.r(__webpack_exports__);
       email: "",
       password: ""
     });
+    var error = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({});
     var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_2__.useRouter)();
 
     var handleLogin = function handleLogin() {
@@ -279,20 +280,19 @@ var actions = {
             case 3:
               _yield$RequestApi$log = _context.sent;
               data = _yield$RequestApi$log.data;
-              console.log(data);
 
               if (!(data.status_code != 500)) {
-                _context.next = 9;
+                _context.next = 8;
                 break;
               }
 
               localStorage.setItem('user', JSON.stringify(data.token));
               return _context.abrupt("return", data.success);
 
-            case 9:
+            case 8:
               return _context.abrupt("return", false);
 
-            case 10:
+            case 9:
             case "end":
               return _context.stop();
           }

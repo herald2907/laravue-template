@@ -24,11 +24,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link">
-                                <router-link :to="{ name: 'login' }">
-                                    <span>Login</span></router-link
-                                >
-                            </a>
+                            <router-link :to="{ name: 'login' }" class="nav-link nav-login">
+                                <span>Login</span></router-link
+                            >
                         </li>
                     </ul>
                 </div>
@@ -123,7 +121,100 @@
                 </div>
             </div>
         </section>
-        <section class="contributors"></section>
+        <section class="contributors">
+            <div class="container">
+                <div class="row">
+                    <h1 class="col-12 title">CONTRIBUTORS</h1>
+                    <div class="col-lg-3 mt-lg-0 mt-3">
+                        <div class="dev-wrapper">
+                            <img class="dev-photo" src="/img/dev/jd.png" alt="" srcset="">
+                            <div class="dev-details">
+                                <span class="name">Jyson Delfin</span>
+                                <span class="position">Developer</span>
+                            </div>
+                            <div class="dev-description">
+                                Sed sed sagittis odio, non aliquam nunc. Aenean ultrices lacinia cursus. Nullam ac euismod sapien, vel cursus elit. Duis quis urna ac justo congue sagittis ac sed nisl. 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 mt-lg-0 mt-3">
+                        <div class="dev-wrapper">
+                            <img class="dev-photo" src="/img/dev/mark.png" alt="" srcset="">
+                            <div class="dev-details">
+                                <span class="name">Mark Stephen Lamboloto</span>
+                                <span class="position">Developer</span>
+                            </div>
+                            <div class="dev-description">
+                                Sed sed sagittis odio, non aliquam nunc. Aenean ultrices lacinia cursus. Nullam ac euismod sapien, vel cursus elit. Duis quis urna ac justo congue sagittis ac sed nisl. 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 mt-lg-0 mt-3">
+                        <div class="dev-wrapper">
+                            <img class="dev-photo" src="/img/dev/vency.png" alt="" srcset="">
+                            <div class="dev-details">
+                                <span class="name">Vency Degracia</span>
+                                <span class="position">Developer</span>
+                            </div>
+                            <div class="dev-description">
+                                Sed sed sagittis odio, non aliquam nunc. Aenean ultrices lacinia cursus. Nullam ac euismod sapien, vel cursus elit. Duis quis urna ac justo congue sagittis ac sed nisl. 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 mt-lg-0 mt-3">
+                        <div class="dev-wrapper">
+                            <img class="dev-photo" src="/img/dev/herald.jpeg" alt="" srcset="">
+                            <div class="dev-details">
+                                <span class="name">Herald Jay Lingat</span>
+                                <span class="position">Developer</span>
+                            </div>
+                            <div class="dev-description">
+                                Sed sed sagittis odio, non aliquam nunc. Aenean ultrices lacinia cursus. Nullam ac euismod sapien, vel cursus elit. Duis quis urna ac justo congue sagittis ac sed nisl. 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4 text-center">
+                        <i class="fas fa-phone"></i>
+                        <span class="d-block detail">(604) +63 575 9000</span>
+                    </div>
+                    <div class="col-sm-4 text-center">
+                        <i class="fas fa-envelope"></i>
+                        <span class="d-block detail">developers@curoteknika.com</span>
+                    </div>
+                    <div class="col-sm-4 text-center">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span class="d-block detail">Pasig, Philippines</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <img src="/img/appdev-light.png" class="about-logo" />
+                    </div>
+                    <div class="social-media">
+                        <a href="#" class="text-danger">
+                            <i class="fab fa-facebook-square"></i>
+                        </a>
+                        <a href="#" class="text-danger">
+                            <i class="fab fa-twitter-square"></i>
+                        </a>
+                        <a href="#" class="text-danger">
+                            <i class="fab fa-instagram-square"></i>
+                        </a>
+                    </div>
+                    <div class="year">©2021</div>
+                </div>
+            </div>
+        </section>
     </div>
 </template>
 

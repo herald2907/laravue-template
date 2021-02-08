@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Http\Request;
@@ -18,12 +19,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    Auth::logout();
-    return $request->auth()->user();
+Route::middleware(['auth:sanctum','auth'])->group(function () {
+    Route::post('/logout',[AuthController::class,'logout'])->name('api.logout');
+    Route::get('dash',[AuthController::class,'dash'])->name('api.dash');
+
 });
 
-Route::middleware(['auth:sanctum'])->group(function () { });
+Route::get('/auth-check',[AuthController::class,'auth'])->name('api.auth');
+Route::post('/login-test',[AuthController::class,'loginTest'])->name('api.login-test');
 
 
 Route::get('/email/verify', function () {
@@ -35,4 +38,5 @@ Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'
 
 require __DIR__ . '/car.php';
 require __DIR__ . '/user.php';
+require __DIR__ . '/role.php';
 require __DIR__ . '/auth.php';

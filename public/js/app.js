@@ -16409,12 +16409,10 @@ __webpack_require__.r(__webpack_exports__);
   var authCheck = getAuthentication();
 
   if (authCheck) {
-    console.log('test2');
     next({
       name: 'dashboard'
     });
   } else {
-    console.log('test4');
     next();
   }
 });
@@ -16439,11 +16437,8 @@ __webpack_require__.r(__webpack_exports__);
       getAuthentication = _stores_global__WEBPACK_IMPORTED_MODULE_0__.default.getAuthentication;
 
   if (getAuthentication()) {
-    console.log('test');
     next();
   } else {
-    console.log('test3');
-
     if (location.href.substring(location.href.lastIndexOf('/') + 1) == 'login') {
       next({
         name: 'login'
@@ -37568,7 +37563,7 @@ function compileToFunction(template, options) {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "js/chunks/undefined/" + chunkId + ".js?id=" + {"home":"1e53816c862ee62c0f77","login":"8ab4150f78ba675f69ec","dashboard-master":"8d78201290577dcdcf51","dashboard":"131c75ecd7fb0ceac7a7"}[chunkId] + "";
+/******/ 			return "js/chunks/undefined/" + chunkId + ".js?id=" + {"home":"11f84061065eddf0501e","login":"291e4582417477528d5b","dashboard-master":"8d78201290577dcdcf51","dashboard":"131c75ecd7fb0ceac7a7"}[chunkId] + "";
 /******/ 		};
 /******/ 	})();
 /******/ 	
