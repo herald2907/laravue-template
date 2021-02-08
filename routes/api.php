@@ -19,14 +19,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['auth:sanctum','auth'])->group(function () {
-    Route::post('/logout',[AuthController::class,'logout'])->name('api.logout');
-    Route::get('dash',[AuthController::class,'dash'])->name('api.dash');
-
+Route::middleware(['auth:sanctum', 'auth'])->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout'])->name('api.logout');
+    Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('api.dashboard');
 });
 
-Route::get('/auth-check',[AuthController::class,'auth'])->name('api.auth');
-Route::post('/login-test',[AuthController::class,'loginTest'])->name('api.login-test');
+Route::get('/auth-check', [AuthController::class, 'auth'])->name('api.auth');
+Route::post('/login-test', [AuthController::class, 'loginTest'])->name('api.login-test');
 
 
 Route::get('/email/verify', function () {

@@ -1,23 +1,15 @@
-<template><p> Test</p></template>
+<template>test</template>
 <script>
+import dashboardStore from "../stores/dashboardStore";
+import { onMounted } from 'vue'
 export default {
-    mounted() {
-        this.getUser();
-    },
-    data() {
-        return {
-            user: [],
-        };
-    },
-    methods: {
-        getUser() {
-            axios
-                .get("/api/user")
-                .then((response) => {
-                    this.user = response.data;
-                })
-                .catch((error) => console.log(error));
-        },
+    setup() {
+        onMounted(() => {
+            console.log("dashboad api");
+            dashboardStore.dashboardApi().then(() => {
+                console.log("stopppp");
+            });
+        });
     },
 };
 </script>

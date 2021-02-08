@@ -4,7 +4,7 @@ import {
 } from 'vue'
 import RequestApi from '../api/RequestApi';
 const state = reactive({
-
+    statue: true,
 })
 
 const getters = reactive({
@@ -21,6 +21,16 @@ const actions = {
         } = await RequestApi.login(params);
         if (data.status_code != 500) {
             localStorage.setItem('user', JSON.stringify(data.token));
+            return data.success;
+        }
+        return false;
+    },
+    async logoutUser() {
+
+        const {
+            data
+        } = await RequestApi.logout();
+        if (data.status_code != 500) {
             return data.success;
         }
         return false;

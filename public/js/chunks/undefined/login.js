@@ -195,8 +195,13 @@ __webpack_require__.r(__webpack_exports__);
     return _api__WEBPACK_IMPORTED_MODULE_0__.default.get('http://localhost:8081/sanctum/csrf-cookie');
   },
   login: function login(params) {
-    console.log(params);
     return _api__WEBPACK_IMPORTED_MODULE_0__.default.post('http://localhost:8081/api/auth/login', params);
+  },
+  dashboard: function dashboard() {
+    return _api__WEBPACK_IMPORTED_MODULE_0__.default.get('http://localhost:8081/api/dashboard');
+  },
+  logout: function logout() {
+    return _api__WEBPACK_IMPORTED_MODULE_0__.default.post('http://localhost:8081/api/logout');
   }
 });
 
@@ -262,7 +267,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
-var state = (0,vue__WEBPACK_IMPORTED_MODULE_1__.reactive)({});
+var state = (0,vue__WEBPACK_IMPORTED_MODULE_1__.reactive)({
+  statue: true
+});
 var getters = (0,vue__WEBPACK_IMPORTED_MODULE_1__.reactive)({});
 var actions = {
   loginUser: function loginUser(params) {
@@ -298,6 +305,39 @@ var actions = {
           }
         }
       }, _callee);
+    }))();
+  },
+  logoutUser: function logoutUser() {
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+      var _yield$RequestApi$log2, data;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return _api_RequestApi__WEBPACK_IMPORTED_MODULE_2__.default.logout();
+
+            case 2:
+              _yield$RequestApi$log2 = _context2.sent;
+              data = _yield$RequestApi$log2.data;
+
+              if (!(data.status_code != 500)) {
+                _context2.next = 6;
+                break;
+              }
+
+              return _context2.abrupt("return", data.success);
+
+            case 6:
+              return _context2.abrupt("return", false);
+
+            case 7:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
     }))();
   }
 };
