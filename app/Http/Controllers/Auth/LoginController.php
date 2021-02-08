@@ -7,11 +7,12 @@ use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class LoginController extends Controller
 {
     public function __construct(UserRepository $repository)
-    { 
+    {
         $this->repository = $repository;
     }
 
@@ -27,22 +28,22 @@ class LoginController extends Controller
         }
 
         $user = auth()->user();
-        
-        if ( ! Hash::check($request->password, $user->password, [])) {
 
-           throw new \Exception('Error in Login');
+        if (!Hash::check($request->password, $user->password, [])) {
+            throw new \Exception('Error in Login');
         }
 
         if (!$user->hasVerifiedEmail()) {
-            
+
             return response()->json([
                 'status_code' => 500,
                 'message' => 'User must verify his/her email'
             ]);
-
         }
-        
+        $token = $user->createToken(Str::random(10));
         return response([
+            'user' => $user,
+            'token' => $token->plainTextToken,
             'success' => true,
         ], 200);
     }

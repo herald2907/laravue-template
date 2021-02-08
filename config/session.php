@@ -128,7 +128,7 @@ return [
 
     'cookie' => env(
         'SESSION_COOKIE',
-        Str::slug(env('APP_NAME', 'laravel'), '_').'_session'
+        Str::slug(env('APP_NAME', 'laravel'), '_') . '_session'
     ),
 
     /*
@@ -156,7 +156,7 @@ return [
     */
 
     'domain' => env('SESSION_DOMAIN', null),
- 
+
 
     /*
     |--------------------------------------------------------------------------
@@ -198,5 +198,15 @@ return [
     */
 
     'same_site' => 'lax',
-
+    /*
+    |--------------------------------------------------------------------------
+    | Stateful Domains
+    |--------------------------------------------------------------------------
+    |
+    | Requests from the following domains / hosts will receive stateful API
+    | authentication cookies. Typically, these should include your local
+    | and production domains which access your API via a frontend SPA.
+    |
+    */
+    'stateful' => explode(',', env('SANCTUM_STATEFUL_DOMAINS', 'localhost')),
 ];

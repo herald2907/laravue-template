@@ -3,19 +3,27 @@ import {
     createRouter
 } from "vue-router";
 
+import middleware from './middleware';
+
 
 const routes = [{
         path: "/",
-        name: "Home",
+        name: "home",
+        beforeEnter: middleware.guest,
         component: () => import( /* webpackChunkName: "home" */ '../pages/Home.vue'),
+
     },
     {
         path: "/login",
         name: "login",
+        beforeEnter: middleware.guest,
+
+
         component: () => import( /* webpackChunkName: "login" */ '../pages/Login.vue'),
     },
     {
         path: '/',
+        beforeEnter: middleware.user,
         component: () => import( /* webpackChunkName: "dashboard-master" */ '../layout/Dashboard-Master.vue'),
 
         children: [{

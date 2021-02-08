@@ -26,7 +26,7 @@ class UserFactory extends Factory
     {
         return [
             'username' => $this->faker->userName,
-            'email' => Crypt::encryptString($this->faker->unique()->safeEmail),
+            'email' => Crypt::encryptString("test@test.com"),
             'email_verified_at' => now(),
             'password' => Hash::make('curotek@123'), // password
             'remember_token' => Str::random(10),

@@ -1,4 +1,4 @@
-<template></template>
+<template><p> Test</p></template>
 <script>
 export default {
     mounted() {
@@ -10,7 +10,7 @@ export default {
         };
     },
     methods: {
-       getUser() {
+        getUser() {
             axios
                 .get("/api/user")
                 .then((response) => {

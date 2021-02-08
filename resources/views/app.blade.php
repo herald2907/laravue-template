@@ -48,7 +48,9 @@
             </div>
 
     </body>
-
+    <script src="/js/manifest.js"></script>
+    <script src="/js/vendor.js"></script>
+    <script src="/js/app.js"></script>
     <!-- jQuery -->
     <script src="{{URL::asset('/js/plugins/jquery/jquery.min.js') }} "></script>
     <!-- jQuery UI 1.11.4 -->

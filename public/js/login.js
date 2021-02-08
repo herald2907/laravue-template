@@ -24,7 +24,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm-bundler.js");
-/* harmony import */ var _stores_loginStore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../stores/loginStore */ "./resources/js/vue/stores/loginStore.js");
+/* harmony import */ var _stores_login__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../stores/login */ "./resources/js/vue/stores/login.js");
 
 
 
@@ -34,21 +34,16 @@ __webpack_require__.r(__webpack_exports__);
       email: "",
       password: ""
     });
-    var error = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({});
     var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_2__.useRouter)();
 
     var handleLogin = function handleLogin() {
-      _stores_loginStore__WEBPACK_IMPORTED_MODULE_1__.default.loginUser(form).then(function (result) {
-        form.email = "";
-        form.password = "";
+      form.email = "";
+      form.password = "";
+      var result = _stores_login__WEBPACK_IMPORTED_MODULE_1__.default.loginUser(form);
 
-        if (result) {
-          console.log(result);
-          router.push({
-            name: "dashboard"
-          });
-        }
-      });
+      if (result) {
+        router.push("/dashboard");
+      }
     };
 
     return {
@@ -153,7 +148,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("input", {
     type: "text",
     "class": "form-control",
-    placeholder: "Email",
+    placeholder: "Username",
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return $setup.form.email = $event;
     })
@@ -195,8 +190,7 @@ __webpack_require__.r(__webpack_exports__);
     return _api__WEBPACK_IMPORTED_MODULE_0__.default.get('http://localhost:8081/sanctum/csrf-cookie');
   },
   login: function login(params) {
-    console.log(params);
-    return _api__WEBPACK_IMPORTED_MODULE_0__.default.post('http://localhost:8081/api/auth/login', params);
+    return _api__WEBPACK_IMPORTED_MODULE_0__.default.post('http://localhost:8081/api/login', params);
   }
 });
 
@@ -233,10 +227,10 @@ instance.interceptors.response.use(function (response) {
 
 /***/ }),
 
-/***/ "./resources/js/vue/stores/loginStore.js":
-/*!***********************************************!*\
-  !*** ./resources/js/vue/stores/loginStore.js ***!
-  \***********************************************/
+/***/ "./resources/js/vue/stores/login.js":
+/*!******************************************!*\
+  !*** ./resources/js/vue/stores/login.js ***!
+  \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -273,26 +267,19 @@ var actions = {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _api_RequestApi__WEBPACK_IMPORTED_MODULE_2__.default.createSession();
-              _context.next = 3;
+              _context.next = 2;
+              return _api_RequestApi__WEBPACK_IMPORTED_MODULE_2__.default.createSession();
+
+            case 2:
+              _context.next = 4;
               return _api_RequestApi__WEBPACK_IMPORTED_MODULE_2__.default.login(params);
 
-            case 3:
+            case 4:
               _yield$RequestApi$log = _context.sent;
               data = _yield$RequestApi$log.data;
+              return _context.abrupt("return", data);
 
-              if (!(data.status_code != 500)) {
-                _context.next = 8;
-                break;
-              }
-
-              localStorage.setItem('user', JSON.stringify(data.token));
-              return _context.abrupt("return", data.success);
-
-            case 8:
-              return _context.abrupt("return", false);
-
-            case 9:
+            case 7:
             case "end":
               return _context.stop();
           }
