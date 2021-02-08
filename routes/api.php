@@ -1,8 +1,11 @@
 <?php
 
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Auth\VerificationController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,12 +19,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+    Auth::logout();
+    return $request->auth()->user();
 });
 
-Route::middleware('auth:sanctum')->group(function () {
-  // Authenticated Routes Here
-});
-Route::post('/login', [AuthController::class, 'login']);
+Route::middleware(['auth:sanctum'])->group(function () { });
 
-Route::post('/auth-user', [AuthController::class, 'authUser']);
+
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+
+Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verification.verify');
+
+require __DIR__ . '/car.php';
+require __DIR__ . '/user.php';
+require __DIR__ . '/auth.php';

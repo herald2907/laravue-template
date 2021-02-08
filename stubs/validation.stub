@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Validations;
+
+class {{Name}} {
+
+
+    public function store(array $data = [])
+    {
+        return [
+           
+        ];
+    }
+
+
+    public function update(array $data = [])
+    {
+        return [
+            
+        ];
+    }
+}

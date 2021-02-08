@@ -16,7 +16,7 @@
                 <input
                     type="text"
                     class="form-control"
-                    placeholder="Username"
+                    placeholder="Email"
                     v-model="form.email"
                 />
             </div>
@@ -53,15 +53,18 @@ export default {
             email: "",
             password: "",
         });
+
+        const error = reactive({});
         const router = useRouter();
         const handleLogin = () => {
-            form.email = "";
-            form.password = "";
-              let result = loginStore.loginUser(form);
-            if (result) {
-                router.push("/dashboard");
-            }
-          
+            loginStore.loginUser(form).then((result) => {
+                form.email = "";
+                form.password = "";
+                if (result) {
+                    console.log(result);
+                    router.push({ name: "dashboard" });
+                }
+            });
         };
 
         return { form, handleLogin };

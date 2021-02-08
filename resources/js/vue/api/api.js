@@ -5,14 +5,16 @@ let instance = axios.create({
 });
 
 instance.interceptors.request.use(request => {
-    request.headers.common['Accept']       = 'application/json';
+    request.headers.common['Accept'] = 'application/json';
     request.headers.common['Content-Type'] = 'application/json';
     return request;
 });
 
 instance.interceptors.response.use(
-response => { return response; },
-error => {
+    response => {
+        return response;
+    },
+    error => {
         return Promise.reject(error);
     }
 );

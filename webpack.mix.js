@@ -15,3 +15,10 @@ mix.js('resources/js/app.js', 'public/js').vue();
 mix.sass('resources/sass/style.scss', 'public/css');
 mix.sass('resources/sass/home.scss', 'public/css');
 mix.disableNotifications();
+
+mix.webpackConfig({
+    output: {
+        chunkFilename: 'js/chunks/' + process.env.npm_config_section + '/[name].js?id=[chunkhash]',
+        publicPath: '/',
+    },
+});
