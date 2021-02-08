@@ -36,4 +36,5 @@ Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'
 
 require __DIR__ . '/car.php';
 require __DIR__ . '/user.php';
+require __DIR__ . '/role.php';
 require __DIR__ . '/auth.php';
