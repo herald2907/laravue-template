@@ -19,20 +19,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('auth/login', [LoginController::class, 'login'])->name('auth.login');
-
- Route::middleware('auth:sanctum')->group(function () {
+Route::middleware('auth:sanctum')->group(function () {
     require __DIR__ . '/auth.php';
     require __DIR__ . '/car.php';
-    
+    require __DIR__ . '/user.php';
+    require __DIR__ . '/role.php';
+
     Route::get('dash', [AuthController::class, 'dash'])->name('api.dash');
- });
+});
 
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
 
 Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'])->name('verification.verify');
-
-
-require __DIR__ . '/user.php';
-require __DIR__ . '/role.php';

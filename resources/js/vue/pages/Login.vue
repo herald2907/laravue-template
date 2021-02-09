@@ -39,6 +39,10 @@
                 Log In
             </button>
         </form>
+        <p v-if="message.error.length">
+            <b>Please correct the following error(s):</b>
+            {{ message.error }}
+        </p>
         <a href="" class="forgot-password-link"><span>Forgot Password</span></a>
     </div>
 </template>
@@ -54,20 +58,25 @@ export default {
             password: "",
         });
 
-        const error = reactive({});
+        const message = reactive({
+            error: "",
+        });
+
         const router = useRouter();
         const handleLogin = () => {
             loginStore.loginUser(form).then((result) => {
                 form.email = "";
                 form.password = "";
-                if (result) {
-                    console.log(result);
+                if (result.success) {
                     router.push({ name: "dashboard" });
+                } else {
+                    message.error = result.message;
+                    console.log(error);
                 }
             });
         };
 
-        return { form, handleLogin };
+        return { form, handleLogin, message };
     },
 };
 </script>
