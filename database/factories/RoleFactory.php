@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Role;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Spatie\Permission\Models\Role;
 
 class RoleFactory extends Factory
 {
@@ -23,6 +23,7 @@ class RoleFactory extends Factory
     {
         return [
             'name' => $this->faker->name,
+            'guard_name' => 'web'
         ];
     }
 }
