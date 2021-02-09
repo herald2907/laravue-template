@@ -1,8 +1,7 @@
 <?php
 
 namespace App\Repositories;
-use App\Models\Model;
-use Spatie\Permission\Models\Role;
+use App\Models\Role;
 
 Class RoleRepository extends Repository
 {
