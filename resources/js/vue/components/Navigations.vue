@@ -36,7 +36,7 @@
             </div>
         </form>
         <div @click="logout">
-            <button type="button" class="btn btn-light">Logout</button>F
+            <button type="button" class="btn btn-light">Logout</button>
         </div>
 
         <!-- Right navbar links -->
@@ -870,11 +870,16 @@
 </template>
 <script>
 import loginStore from "../stores/loginStore";
+import { useRouter } from "vue-router";
 export default {
     setup() {
+        const router = useRouter();
         const logout = () => {
             loginStore.logoutUser().then((result) => {
-                console.log(result);
+                if (result) {
+                    localStorage.removeItem('user');
+                    router.push({name: 'home'})
+                }
             });
         };
         return { logout };

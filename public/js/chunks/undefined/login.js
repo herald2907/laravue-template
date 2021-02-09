@@ -232,6 +232,11 @@ instance.interceptors.request.use(function (request) {
 instance.interceptors.response.use(function (response) {
   return response;
 }, function (error) {
+  if (error.response.status === 401) {
+    localStorage.removeItem('user');
+    window.location.reload();
+  }
+
   return Promise.reject(error);
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (instance);
