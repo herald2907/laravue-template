@@ -34,7 +34,9 @@ __webpack_require__.r(__webpack_exports__);
       email: "",
       password: ""
     });
-    var error = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({});
+    var message = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
+      error: ""
+    });
     var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_2__.useRouter)();
 
     var handleLogin = function handleLogin() {
@@ -42,18 +44,21 @@ __webpack_require__.r(__webpack_exports__);
         form.email = "";
         form.password = "";
 
-        if (result) {
-          console.log(result);
+        if (result.success) {
           router.push({
             name: "dashboard"
           });
+        } else {
+          message.error = result.message;
+          console.log(error);
         }
       });
     };
 
     return {
       form: form,
-      handleLogin: handleLogin
+      handleLogin: handleLogin,
+      message: message
     };
   }
 });
@@ -137,7 +142,15 @@ var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 /* HOISTED */
 );
 
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+var _hoisted_10 = {
+  key: 0
+};
+
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("b", null, "Please correct the following error(s):", -1
+/* HOISTED */
+);
+
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
   href: "",
   "class": "forgot-password-link"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Forgot Password")], -1
@@ -170,7 +183,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.password]])]), _hoisted_9], 32
   /* HYDRATE_EVENTS */
-  ), _hoisted_10])], 64
+  ), $setup.message.error.length ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("p", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.message.error), 1
+  /* TEXT */
+  )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _hoisted_12])], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -299,10 +314,10 @@ var actions = {
               }
 
               localStorage.setItem('user', JSON.stringify(data.token));
-              return _context.abrupt("return", data.success);
+              return _context.abrupt("return", data);
 
             case 8:
-              return _context.abrupt("return", false);
+              return _context.abrupt("return", data);
 
             case 9:
             case "end":

@@ -23,6 +23,7 @@ class LoginController extends Controller
         if (!Auth::attempt($credentials)) {
             return response()->json([
                 'status_code' => 500,
+                'success' => false,
                 'message' => 'Unauthorized'
             ]);
         }
@@ -36,11 +37,11 @@ class LoginController extends Controller
         if (!$user->hasVerifiedEmail()) {
 
             return response()->json([
+                'success' => false,
                 'status_code' => 500,
                 'message' => 'User must verify his/her email'
             ]);
         }
-        $token = $user->createToken(Str::random(10));
         return response([
             'user' => $user,
             'token' => $token->plainTextToken,

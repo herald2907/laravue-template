@@ -1053,10 +1053,10 @@ var actions = {
               }
 
               localStorage.setItem('user', JSON.stringify(data.token));
-              return _context.abrupt("return", data.success);
+              return _context.abrupt("return", data);
 
             case 8:
-              return _context.abrupt("return", false);
+              return _context.abrupt("return", data);
 
             case 9:
             case "end":

@@ -21,9 +21,9 @@ const actions = {
         } = await RequestApi.login(params);
         if (data.status_code != 500) {
             localStorage.setItem('user', JSON.stringify(data.token));
-            return data.success;
+            return data;
         }
-        return false;
+        return data;
     },
     async logoutUser() {
 
