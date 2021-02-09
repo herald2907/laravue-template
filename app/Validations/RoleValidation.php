@@ -8,7 +8,7 @@ class RoleValidation {
     public function store(array $data = [])
     {
         return [
-           
+            'name'  => ['required', 'string'],
         ];
     }
 
@@ -16,7 +16,7 @@ class RoleValidation {
     public function update(array $data = [])
     {
         return [
-            
+            'name'  => ['required', 'string'],
         ];
     }
 }

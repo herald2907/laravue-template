@@ -44,11 +44,18 @@ class LoginController extends Controller
         }
         return response([
             'user' => $user,
-            'token' => $token->plainTextToken,
             'success' => true,
         ], 200);
     }
 
     public function showLogin()
     { }
+
+    public function logout(Request $request)
+    {
+        $request->session()->invalidate();
+        return response([
+            'success' => true,
+        ], 200);
+    }
 }

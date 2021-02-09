@@ -5,18 +5,18 @@ namespace Tests\Feature;
 use App\Models\Cars;
 use Exception;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class CarsTest extends TestCase
 {
     use RefreshDatabase;
 
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->adminSignIn();
+    }
 
     public function test_cars_index()
     {
