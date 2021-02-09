@@ -39,7 +39,8 @@ class RoleTest extends TestCase
     public function test_role_store()
     {
         $this->postJson(route('role.store'), [
-            'name'              => $name = 'super_admin',
+            'name'                  => $name = 'super_admin',
+            'guard_name'            => $guard_name = 'web',
            
         ])->assertJsonFragment(['name' => $name]);
 
