@@ -2,10 +2,9 @@
 
 namespace Tests;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
-use Illuminate\Support\Facades\Auth;
-use Spatie\Permission\Models\Role;
 
 abstract class TestCase extends BaseTestCase
 {

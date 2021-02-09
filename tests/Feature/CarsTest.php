@@ -5,7 +5,6 @@ namespace Tests\Feature;
 use App\Models\Cars;
 use Exception;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class CarsTest extends TestCase
