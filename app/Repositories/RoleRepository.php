@@ -10,4 +10,20 @@ Class RoleRepository extends Repository
     {
         $this->model = $model;
     }
+
+    public function createRole(array $data = [])
+    {
+        $role = $this->model::create($data);
+
+        return $role;
+    }
+
+    public function updateRole(array $data = [], $id)
+    {
+        $role = $this->findByColumn($id, 'id');
+
+        $role->update($data);
+
+        return $role;
+    }
 }

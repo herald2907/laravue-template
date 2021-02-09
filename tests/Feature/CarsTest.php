@@ -12,11 +12,12 @@ class CarsTest extends TestCase
 {
     use RefreshDatabase;
 
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->adminSignIn();
+    }
 
     public function test_cars_index()
     {

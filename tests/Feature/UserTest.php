@@ -5,6 +5,8 @@ namespace Tests\Feature;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\Storage;
+use Spatie\Permission\Models\Role;
 use Tests\TestCase;
 
 class UserTest extends TestCase
@@ -12,12 +14,21 @@ class UserTest extends TestCase
 
     use RefreshDatabase;
 
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->adminSignIn();
+
+    }
+
+
     public function test_user_index()
     {
         $user = User::factory()->count(10)->create();
 
         $this->getJson(route('user.index'))
-            ->assertJsonCount(10, 'data');
+            ->assertJsonCount(11, 'data');
     }
 
     public function test_user_show()
@@ -31,11 +42,14 @@ class UserTest extends TestCase
     }
 
     public function test_user_store()
-    {
+    { 
+        $role = Role::factory()->create();
+
         $this->postJson(route('user.store'), [
             'username'              => $username = 'jbdelfin',
             'email'                 => $email = 'jbdelfin@curoteknika.com',
             'password'              => $password = 'Mercury123$',
+            'role'                  => $role->name,
         ])->assertJsonFragment(['username' => $username, 'email' => $email]);
 
         $this->assertDatabaseHas('users', [

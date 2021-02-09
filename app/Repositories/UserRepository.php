@@ -18,20 +18,19 @@ class UserRepository extends Repository
 
     public function createUser(array $data = [])
     {
-        //data_set($data, 'email_verified_at', now());
-
+        
         data_set($data, 'password', Hash::make($data['password']));
-
-        //data_set($data, 'remember_token', Str::random(10));
 
         $user = $this->model::create($data);
 
-        event(new Registered($user));
+        $user->assignRole($data['role']);
+
+        //event(new Registered($user));
 
         return $user;
     }
 
-    public function updateUser(array $data = [],string $id)
+    public function updateUser(array $data = [], $id)
     {
         $user = $this->findByColumn($id, 'id');
 

@@ -50,4 +50,12 @@ class LoginController extends Controller
 
     public function showLogin()
     { }
+
+    public function logout(Request $request)
+    {
+        $request->session()->invalidate();
+        return response([
+            'success' => true,
+        ], 200);
+    }
 }
