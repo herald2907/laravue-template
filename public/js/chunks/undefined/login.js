@@ -34,7 +34,9 @@ __webpack_require__.r(__webpack_exports__);
       email: "",
       password: ""
     });
-    var error = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({});
+    var message = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
+      error: ""
+    });
     var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_2__.useRouter)();
 
     var handleLogin = function handleLogin() {
@@ -42,18 +44,21 @@ __webpack_require__.r(__webpack_exports__);
         form.email = "";
         form.password = "";
 
-        if (result) {
-          console.log(result);
+        if (result.success) {
           router.push({
             name: "dashboard"
           });
+        } else {
+          message.error = result.message;
+          console.log(error);
         }
       });
     };
 
     return {
       form: form,
-      handleLogin: handleLogin
+      handleLogin: handleLogin,
+      message: message
     };
   }
 });
@@ -137,7 +142,15 @@ var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 /* HOISTED */
 );
 
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+var _hoisted_10 = {
+  key: 0
+};
+
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("b", null, "Please correct the following error(s):", -1
+/* HOISTED */
+);
+
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
   href: "",
   "class": "forgot-password-link"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("span", null, "Forgot Password")], -1
@@ -170,7 +183,9 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.password]])]), _hoisted_9], 32
   /* HYDRATE_EVENTS */
-  ), _hoisted_10])], 64
+  ), $setup.message.error.length ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("p", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($setup.message.error), 1
+  /* TEXT */
+  )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _hoisted_12])], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -195,8 +210,13 @@ __webpack_require__.r(__webpack_exports__);
     return _api__WEBPACK_IMPORTED_MODULE_0__.default.get('http://localhost:8081/sanctum/csrf-cookie');
   },
   login: function login(params) {
-    console.log(params);
     return _api__WEBPACK_IMPORTED_MODULE_0__.default.post('http://localhost:8081/api/auth/login', params);
+  },
+  dashboard: function dashboard() {
+    return _api__WEBPACK_IMPORTED_MODULE_0__.default.get('http://localhost:8081/api/dashboard');
+  },
+  logout: function logout() {
+    return _api__WEBPACK_IMPORTED_MODULE_0__.default.post('http://localhost:8081/api/logout');
   }
 });
 
@@ -227,6 +247,11 @@ instance.interceptors.request.use(function (request) {
 instance.interceptors.response.use(function (response) {
   return response;
 }, function (error) {
+  if (error.response.status === 401) {
+    localStorage.removeItem('user');
+    window.location.reload();
+  }
+
   return Promise.reject(error);
 });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (instance);
@@ -262,7 +287,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
-var state = (0,vue__WEBPACK_IMPORTED_MODULE_1__.reactive)({});
+var state = (0,vue__WEBPACK_IMPORTED_MODULE_1__.reactive)({
+  statue: true
+});
 var getters = (0,vue__WEBPACK_IMPORTED_MODULE_1__.reactive)({});
 var actions = {
   loginUser: function loginUser(params) {
@@ -287,10 +314,10 @@ var actions = {
               }
 
               localStorage.setItem('user', JSON.stringify(data.token));
-              return _context.abrupt("return", data.success);
+              return _context.abrupt("return", data);
 
             case 8:
-              return _context.abrupt("return", false);
+              return _context.abrupt("return", data);
 
             case 9:
             case "end":
@@ -298,6 +325,39 @@ var actions = {
           }
         }
       }, _callee);
+    }))();
+  },
+  logoutUser: function logoutUser() {
+    return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+      var _yield$RequestApi$log2, data;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return _api_RequestApi__WEBPACK_IMPORTED_MODULE_2__.default.logout();
+
+            case 2:
+              _yield$RequestApi$log2 = _context2.sent;
+              data = _yield$RequestApi$log2.data;
+
+              if (!(data.status_code != 500)) {
+                _context2.next = 6;
+                break;
+              }
+
+              return _context2.abrupt("return", data.success);
+
+            case 6:
+              return _context2.abrupt("return", false);
+
+            case 7:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
     }))();
   }
 };

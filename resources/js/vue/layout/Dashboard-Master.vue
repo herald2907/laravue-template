@@ -4,7 +4,7 @@
     </div>
     <div class="main-content">
         <div class="content-wrapper">
-            <div class="content-body">
+        <div class="content-body">
                 <router-view></router-view>
             </div>
         </div>
@@ -20,4 +20,5 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+</style>

@@ -65,8 +65,11 @@ class AuthController extends Controller
         ], 200);
     }
 
-    public function dash()
+    public function dashboard()
     {
-        dd('this is dashboard');
+        
+        return response([
+            'user' => Auth::user(),
+        ], 200);
     }
 }
