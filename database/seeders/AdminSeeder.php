@@ -20,6 +20,7 @@ class AdminSeeder extends Seeder
             'email' => 'devph.live@gmail.com',
             'email_verified_at' => now(),
             'password' => '@ppdev01',
+            'role' => 'super_admin',
         ];
 
         $repository = new UserRepository(new User());

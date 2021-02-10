@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Role extends Model
+class Permission extends Model
 {
     use HasFactory;
     use SoftDeletes;
@@ -15,9 +15,4 @@ class Role extends Model
         'name',
         'guard_name',
     ];
-
-    public function role_has_permission()
-    {
-        return $this->belongsTo(RoleHasPermission::class,'id','role_id');
-    }
 }

@@ -49,5 +49,10 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsTo(ModelHasRole::class,'id','model_id');
     }
 
+    public function model_has_permission()
+    {
+        return $this->belongsTo(ModelHasPermission::class,'id','model_id');
+    }
+
 
 }

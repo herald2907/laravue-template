@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\User;
 use Exception;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -21,9 +22,13 @@ class UserRepository extends Repository
         
         data_set($data, 'password', Hash::make($data['password']));
 
+        data_set($role,'',$data['role']);
+        
+        Arr::forget($data,'role');
+
         $user = $this->model::create($data);
 
-        $user->assignRole($data['role']);
+        $user->assignRole($role);
 
         //event(new Registered($user));
 

@@ -2,10 +2,21 @@
 
 namespace App\Repositories;
 
-use Illuminate\Database\Eloquent\Collection;
+
+use Illuminate\Support\Facades\Route;
 
 class Repository
 {
+
+    public function hasPermission()
+    {
+        $route = Route::currentRouteName();
+        
+        if(!auth()->user()->hasPermissionTo($route))
+        {
+            dd('Unauthorized');
+        }
+    }
 
     public function getAllData(array $data = [], array $relations = [])
     {
