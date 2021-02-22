@@ -18,7 +18,7 @@ mix.disableNotifications();
 
 mix.webpackConfig({
     output: {
-        chunkFilename: 'js/chunks/' + process.env.npm_config_section + '/[name].js?id=[chunkhash]',
+        chunkFilename: 'js/chunks/pages/[name].js?id=[chunkhash]',
         publicPath: '/',
     },
 });
