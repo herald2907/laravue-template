@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Repositories\UserRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Str;
 
 class LoginController extends Controller
 {
@@ -19,7 +19,7 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
-
+    
         if (!Auth::attempt($credentials)) {
             return response()->json([
                 'status_code' => 500,
@@ -49,7 +49,8 @@ class LoginController extends Controller
     }
 
     public function showLogin()
-    { }
+    {
+    }
 
     public function logout(Request $request)
     {

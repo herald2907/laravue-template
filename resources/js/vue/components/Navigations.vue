@@ -39,46 +39,43 @@
         >
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+
           <li class="nav-item">
-            <a href="/dashboard" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
-                </a>
-            
+            <router-link :to="{ name: 'dashboard' }" class="nav-link">
+              <p>Dashboard</p>
+            </router-link>
           </li>
+
           <!--  <li class="nav-item">
                     </li> -->
           <li class="nav-item has-treeview">
             <ul class="nav nav-treeview"></ul>
           </li>
 
-          <li class="nav-header">MULTI LEVEL EXAMPLE</li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-circle"></i>
               <p>
-                Level 1
+                Management
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item has-treeview">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>
-                    Level 2
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="far fa-dot-circle nav-icon"></i>
-                      <p>Level 3</p>
-                    </a>
-                  </li>
-                </ul>
+                <router-link :to="{ name: 'user.index' }" class="nav-link">
+                  <p>User</p>
+                </router-link>
               </li>
+              <li class="nav-item has-treeview">
+                <router-link :to="{ name: 'role.index' }" class="nav-link">
+                  <p>Roles</p>
+                </router-link>
+              </li>
+              <li class="nav-item has-treeview">
+                <router-link :to="{ name: 'permission.index' }" class="nav-link">
+                  <p>Permission</p>
+                </router-link>
+              </li>
+
             </ul>
           </li>
         </ul>
