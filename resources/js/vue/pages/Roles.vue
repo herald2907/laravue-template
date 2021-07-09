@@ -1,4 +1,4 @@
-<template>Dashboard</template>
+<template>Roles</template>
 <script>
 import dashboardStore from "../stores/dashboardStore";
 import { onMounted } from 'vue'

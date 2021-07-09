@@ -11,6 +11,6 @@ export default {
         return api.get('http://localhost:8081/api/dashboard');
     },
     logout() {
-        return api.post('http://localhost:8081/api/logout');
+        return api.post('http://localhost:8081/api/auth/logout');
     },
 };

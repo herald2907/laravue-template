@@ -1,9 +1,9 @@
 {
     "/js/app.js": "/js/app.js",
-    "/js/chunks/undefined/home.js": "/js/chunks/undefined/home.js?id=11f84061065eddf0501e",
-    "/js/chunks/undefined/login.js": "/js/chunks/undefined/login.js?id=2be9caad84cffa12cc58",
-    "/js/chunks/undefined/dashboard-master.js": "/js/chunks/undefined/dashboard-master.js?id=f1fc77c7f45855e7bd1b",
-    "/js/chunks/undefined/dashboard.js": "/js/chunks/undefined/dashboard.js?id=1ff082e9fa6077899d4f",
+    "/js/chunks/pages/home.js": "/js/chunks/pages/home.js?id=11f84061065eddf0501e",
+    "/js/chunks/pages/login.js": "/js/chunks/pages/login.js?id=605c48d1cdb936882eec",
+    "/js/chunks/pages/dashboard-master.js": "/js/chunks/pages/dashboard-master.js?id=7e44fbeedf9fec786557",
+    "/js/chunks/pages/dashboard.js": "/js/chunks/pages/dashboard.js?id=f8cae0c6d888ca36a1ca",
     "/css/home.css": "/css/home.css",
     "/css/style.css": "/css/style.css"
 }

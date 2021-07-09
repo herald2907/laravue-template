@@ -20,7 +20,7 @@ const actions = {
             data
         } = await RequestApi.login(params);
         if (data.status_code != 500) {
-            localStorage.setItem('user', JSON.stringify(data.token));
+            localStorage.setItem('user', JSON.stringify(data.user));
             return data;
         }
         return data;

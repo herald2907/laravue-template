@@ -16495,6 +16495,27 @@ var routes = [{
     component: function component() {
       return __webpack_require__.e(/*! import() | dashboard */ "dashboard").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Dashboard.vue */ "./resources/js/vue/pages/Dashboard.vue"));
     }
+  }, {
+    title: 'Role',
+    path: '/role',
+    name: 'role.index',
+    component: function component() {
+      return __webpack_require__.e(/*! import() | dashboard */ "dashboard").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Roles.vue */ "./resources/js/vue/pages/Roles.vue"));
+    }
+  }, {
+    title: 'Permission',
+    path: '/permissions',
+    name: 'permission.index',
+    component: function component() {
+      return __webpack_require__.e(/*! import() | dashboard */ "dashboard").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Permissions.vue */ "./resources/js/vue/pages/Permissions.vue"));
+    }
+  }, {
+    title: 'User',
+    path: '/users',
+    name: 'user.index',
+    component: function component() {
+      return __webpack_require__.e(/*! import() | dashboard */ "dashboard").then(__webpack_require__.bind(__webpack_require__, /*! ../pages/Users.vue */ "./resources/js/vue/pages/Users.vue"));
+    }
   }]
 }];
 var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_1__.createRouter)({
@@ -37563,7 +37584,7 @@ function compileToFunction(template, options) {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "js/chunks/undefined/" + chunkId + ".js?id=" + {"home":"11f84061065eddf0501e","login":"2be9caad84cffa12cc58","dashboard-master":"f1fc77c7f45855e7bd1b","dashboard":"1ff082e9fa6077899d4f"}[chunkId] + "";
+/******/ 			return "js/chunks/pages/" + chunkId + ".js?id=" + {"home":"11f84061065eddf0501e","login":"605c48d1cdb936882eec","dashboard-master":"7e44fbeedf9fec786557","dashboard":"f8cae0c6d888ca36a1ca"}[chunkId] + "";
 /******/ 		};
 /******/ 	})();
 /******/ 	
